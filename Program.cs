@@ -7,13 +7,13 @@ class Program
     {
         List<Cerveja> listaCervejas = new List<Cerveja>();
 
-        listaCervejas.Add(new Spaten("Spaten", "Pilsen", 5.2, 355.0));
+        listaCervejas.Add(new Spaten("Spaten", "Puro Malte", 5.2, 355.0));
         listaCervejas.Add(new Corona("Corona", "Pilsen", 4.5, 330.0));
-        listaCervejas.Add(new Becks("Becks", "Lager", 5.0, 330.0));
+        listaCervejas.Add(new Becks("Becks", "German Lager", 5.0, 330.0));
 
         foreach (var cerveja in listaCervejas)
         {
-            Console.WriteLine(cerveja.Descrever(cerveja.Tipo, cerveja.TeorAlcoolico, cerveja.Volume));            
+            Console.WriteLine(cerveja.Descrever(cerveja.Marca, cerveja.TeorAlcoolico, cerveja.Volume));            
         }
         Console.ReadLine();
     }
@@ -34,9 +34,9 @@ public class Cerveja
     public double TeorAlcoolico { get; private set; }
     public double Volume { get; private set; }
 
-    public virtual string Descrever(string tipo, double teorAlcoolico, double volume)
+    public virtual string Descrever(string marca, double teorAlcoolico, double volume)
     {
-        return "Cerveja é do tipo " + tipo + " com teor alcoólico de " + teorAlcoolico + " e volume " + volume;
+        return "Cerveja " + marca + " é do tipo Pilsen com teor alcoólico de " + teorAlcoolico + " e volume " + volume;
     }
 
     public double CalcularPrecoCerveja(double teorAlcoolico, double volume)
@@ -53,9 +53,9 @@ public class Spaten : Cerveja
         
     }
 
-    public override string Descrever(string tipo, double teorAlcoolico, double volume)
+    public override string Descrever(string marca, double teorAlcoolico, double volume)
     {
-        return "Cerveja Spaten é do tipo " + tipo + " com teor alcoólico de " + teorAlcoolico + "%, volume " + volume + "ml e preço: R$ " + CalcularPrecoCerveja(TeorAlcoolico, Volume);
+        return "Cerveja " + marca + " é do tipo Puro Malte com teor alcoólico de " + teorAlcoolico + "%, volume " + volume + "ml e preço: R$ " + CalcularPrecoCerveja(TeorAlcoolico, Volume);
     }
 }
 
@@ -67,9 +67,9 @@ public class Corona : Cerveja
 
     }
 
-    public override string Descrever(string tipo, double teorAlcoolico, double volume)
+    public override string Descrever(string marca, double teorAlcoolico, double volume)
     {
-        return "Cerveja Corona é do tipo " + tipo + " com teor alcoólico de " + teorAlcoolico + "%, volume " + volume + "ml e preço: R$ " + CalcularPrecoCerveja(TeorAlcoolico, Volume);
+        return "Cerveja " + marca + " é do tipo Pilsen com teor alcoólico de " + teorAlcoolico + "%, volume " + volume + "ml e preço: R$ " + CalcularPrecoCerveja(TeorAlcoolico, Volume);
     }
 }
 
@@ -81,9 +81,9 @@ public class Becks : Cerveja
 
     }        
 
-    public override string Descrever(string tipo, double teorAlcoolico, double volume)
+    public override string Descrever(string marca, double teorAlcoolico, double volume)
     {
-        return "Cerveja Becks é do tipo " + tipo + " com teor alcoólico de " + teorAlcoolico + "%, volume " + volume + "ml e preço: R$ " + CalcularPrecoCerveja(TeorAlcoolico, Volume);
+        return "Cerveja " + marca + " é do tipo German Lager com teor alcoólico de " + teorAlcoolico + "%, volume " + volume + "ml e preço: R$ " + CalcularPrecoCerveja(TeorAlcoolico, Volume);
     }
 }
 
